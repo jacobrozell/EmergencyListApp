@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Menu extends AppCompatActivity {
 
@@ -55,6 +56,7 @@ public class Menu extends AppCompatActivity {
         });
     }
 
+    // Switch theme:
     private void toggleTheme(boolean darkTheme) {
         SharedPreferences.Editor editor = getSharedPreferences("com.example.magra.projectapp", MODE_PRIVATE).edit();
         editor.putBoolean("darkTheme", darkTheme);
@@ -66,27 +68,33 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Submits the EditTexts and writes them to the TextViews:
     public void submit(View view) {
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         EditText members = findViewById(R.id.membersEditText);
         EditText days = findViewById(R.id.daysEditText);
         TextView memberTextView = findViewById(R.id.membersTextView);
         TextView daysTextView = findViewById(R.id.daysTextView);
 
-        memberTextView.setText(members.getText().toString());
-        daysTextView.setText(days.getText().toString());
+        if(members.getText().toString().isEmpty() || days.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(),"Both Fields Required", Toast.LENGTH_LONG).show();
+        }
+        else {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            memberTextView.setText(members.getText().toString());
+            daysTextView.setText(days.getText().toString());
 
-        editor.putString("membersInFamily", memberTextView.getText().toString());
-        editor.putString("daysAbsent", daysTextView.getText().toString());
+            editor.putString("membersInFamily", memberTextView.getText().toString());
+            editor.putString("daysAbsent", daysTextView.getText().toString());
 
-        editor.putInt("membersInFamilyAsInt", Integer.valueOf(memberTextView.getText().toString()));
-        editor.putInt("daysAbsentAsInt", Integer.valueOf(daysTextView.getText().toString()));
+            editor.putInt("membersInFamilyAsInt", Integer.valueOf(memberTextView.getText().toString()));
+            editor.putInt("daysAbsentAsInt", Integer.valueOf(daysTextView.getText().toString()));
 
-        editor.apply();
+            editor.apply();
+        }
     }
 
+    // Goes to mainLayout:
     public void toMain(View view) {
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
