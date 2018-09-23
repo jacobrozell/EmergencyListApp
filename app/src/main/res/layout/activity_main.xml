@@ -33,7 +33,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/foodNom"
+            android:id="@+id/foodNum"
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:paddingLeft="2dp"
@@ -148,7 +148,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/waterNom"
+            android:id="@+id/waterNum"
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:paddingLeft="2dp"
