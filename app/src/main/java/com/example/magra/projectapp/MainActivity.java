@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         waterDenom.setText(String.valueOf(neededWater));
 
         // Calculate food:
-        int neededFood = (daysAbsent * members);
+        int neededFood = (daysAbsent * members * 3);
         foodAmt = sharedPreferences.getInt("foodAmt", 0);
         foodNum.setText(String.valueOf(sharedPreferences.getInt("foodAmt", 0)));
         foodDenom.setText(String.valueOf(neededFood));
@@ -126,11 +126,13 @@ public class MainActivity extends AppCompatActivity {
                     myListView.setItemChecked(position, false);
                     boolList.add(position, false);
 
-                } else {
+                }
+                else {
                     myListView.setItemChecked(position, true);
                     boolList.add(position, true);
 
                 }
+                saveArrays();
             }
         });
 
@@ -255,14 +257,7 @@ public class MainActivity extends AppCompatActivity {
         boolList.add(false);
 
         // After adding new item, update the SharedPreferences with new arrays:
-        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-        String json = gson.toJson(boolList);
-        prefEditor.putString("boolList", json);
-        prefEditor.apply();
-        
-        json = gson.toJson(arrayList);
-        prefEditor.putString("arrayList", json);
-        prefEditor.apply();
+        saveArrays();
     }
 
     // Remove item in both boolList and ArrayList:
@@ -271,18 +266,10 @@ public class MainActivity extends AppCompatActivity {
         boolList.remove(index);
 
         // After deleting, update the SharedPreferences with new arrays:
-        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-        String json = gson.toJson(boolList);
-        prefEditor.putString("boolList", json);
-        prefEditor.apply();
-
-        json = gson.toJson(arrayList);
-        prefEditor.putString("arrayList", json);
-        prefEditor.apply();
+        saveArrays();
     }
 
-    public void toMenu(View view) {
-        // Save the lists using Gson:
+    public void saveArrays() {
         // boolList
         SharedPreferences.Editor prefEditor = sharedPreferences.edit();
         String json = gson.toJson(boolList);
@@ -293,6 +280,12 @@ public class MainActivity extends AppCompatActivity {
         json = gson.toJson(arrayList);
         prefEditor.putString("arrayList", json);
         prefEditor.apply();
+
+    }
+
+    public void toMenu(View view) {
+        // Save the lists using Gson:
+        saveArrays();
 
         // To Menu Activity:
         Intent intent = new Intent(getApplicationContext(), Menu.class);
