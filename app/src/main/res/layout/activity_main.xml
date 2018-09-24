@@ -49,7 +49,7 @@
 
         <TextView
             android:id="@+id/foodDenom"
-            android:layout_width="25dp"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:text="10" />
 
@@ -138,6 +138,7 @@
             android:id="@+id/waterTextView"
             android:layout_width="50dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="Water:"
@@ -164,7 +165,7 @@
 
         <TextView
             android:id="@+id/waterDenom"
-            android:layout_width="25dp"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:text="10" />
 
