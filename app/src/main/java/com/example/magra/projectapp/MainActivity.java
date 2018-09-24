@@ -85,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         // Either populate the arrayList or return the saved:
         if (sharedPreferences.getString("arrayList", null) == null) {
             populate();
-        } else {
+            saveArrays();
+        }
+        else {
             String jsonArrayList = sharedPreferences.getString("arrayList", "");
             Type type = new TypeToken<ArrayList<String>>() {
             }.getType();
@@ -110,9 +112,12 @@ public class MainActivity extends AppCompatActivity {
             // if position of i is true / listView.setItem checked to true:
             if (boolList.get(position)) {
                 myListView.setItemChecked(position, true);
-            } else {
+            }
+            else {
                 myListView.setItemChecked(position, false);
             }
+            saveArrays();
+            arrayAdapter.notifyDataSetChanged();
         }
 
         // When list item clicked set the boolean value to true or false:
@@ -121,14 +126,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 // Check the value of the bool to determine if checked or unchecked:
-
                 if (boolList.get(position)) {
                     myListView.setItemChecked(position, false);
+                    boolList.remove(position);
                     boolList.add(position, false);
 
                 }
                 else {
                     myListView.setItemChecked(position, true);
+                    boolList.remove(position);
                     boolList.add(position, true);
 
                 }
@@ -148,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     //arrayAdapter.remove(arrayList.get(position));
                     removeItem(position);
                     arrayAdapter.notifyDataSetChanged();
+                    saveArrays();
                     return true;
                 }
                 else {
@@ -177,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 prefEditor.apply();
                 waterNum.setText(String.valueOf(waterAmt));
                 foodNum.setText(String.valueOf(foodAmt));
+                saveArrays();
             }
         });
 
