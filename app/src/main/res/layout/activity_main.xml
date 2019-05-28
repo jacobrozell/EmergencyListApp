@@ -6,83 +6,167 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/FoodLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/ListViewLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/ListViewLayout">
 
-        <TextView
-            android:id="@+id/food"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="Food:"
-            android:textAllCaps="false"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/foodNum"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:paddingLeft="2dp"
-            android:paddingRight="4dp"
-            android:paddingTop="10dp"
-            android:text="0"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="197dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:text="/" />
-
-        <TextView
-            android:id="@+id/foodDenom"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:text="10" />
 
         <LinearLayout
-            android:id="@+id/FoodButtonLayout"
-            android:layout_width="39dp"
+            android:id="@+id/FoodLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            <Button
-                android:id="@+id/incrementFoodButton"
-                android:layout_width="41dp"
-                android:layout_height="26dp"
-                android:background="@null"
-                android:drawableLeft="@drawable/plus"
-                android:onClick="increaseFood"
-                android:paddingTop="5dp"
-                tools:layout_editor_absoluteX="163dp"
+            <TextView
+                android:id="@+id/food"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Food:"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/foodNum"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="4dp"
+                android:paddingTop="10dp"
+                android:text="0"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="197dp"
                 tools:layout_editor_absoluteY="16dp" />
 
-            <Button
-                android:id="@+id/decreaseFoodButton"
-                android:layout_width="42dp"
-                android:layout_height="16dp"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableLeft="@drawable/minus"
-                android:onClick="decreaseFood"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:text="/" />
+
+            <TextView
+                android:id="@+id/foodDenom"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:text="10" />
+
+            <LinearLayout
+                android:id="@+id/FoodButtonLayout"
+                android:layout_width="39dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/incrementFoodButton"
+                    android:layout_width="41dp"
+                    android:layout_height="26dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/plus"
+                    android:onClick="increaseFood"
+                    android:paddingTop="5dp"
+                    tools:layout_editor_absoluteX="163dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <Button
+                    android:id="@+id/decreaseFoodButton"
+                    android:layout_width="42dp"
+                    android:layout_height="16dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/minus"
+                    android:onClick="decreaseFood"
+                    tools:layout_editor_absoluteX="163dp"
+                    tools:layout_editor_absoluteY="16dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/WaterLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/waterTextView"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Water:"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/waterNum"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="4dp"
+                android:paddingTop="10dp"
+                android:text="0"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="197dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/waterSlash"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:text="/" />
+
+            <TextView
+                android:id="@+id/waterDenom"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:text="10" />
+
+            <LinearLayout
+                android:id="@+id/WaterButtonLayout"
+                android:layout_width="54dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/incrementWaterButton"
+                    android:layout_width="32dp"
+                    android:layout_height="26dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/plus"
+                    android:onClick="increaseWater"
+                    android:paddingTop="5dp"
+                    tools:layout_editor_absoluteX="163dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <Button
+                    android:id="@+id/decreaseWaterButton"
+                    android:layout_width="33dp"
+                    android:layout_height="16dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/minus"
+                    android:onClick="decreaseWater"
+                    tools:layout_editor_absoluteX="163dp"
+                    tools:layout_editor_absoluteY="16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
 
     <LinearLayout
         android:id="@+id/MainButtonLayout"
@@ -124,81 +208,6 @@
             tools:layout_editor_absoluteY="419dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/WaterLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/waterTextView"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="Water:"
-            android:textAllCaps="false"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/waterNum"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:paddingLeft="2dp"
-            android:paddingRight="4dp"
-            android:paddingTop="10dp"
-            android:text="0"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="197dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <TextView
-            android:id="@+id/waterSlash"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:text="/" />
-
-        <TextView
-            android:id="@+id/waterDenom"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:text="10" />
-
-        <LinearLayout
-            android:id="@+id/WaterButtonLayout"
-            android:layout_width="54dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/incrementWaterButton"
-                android:layout_width="32dp"
-                android:layout_height="26dp"
-                android:background="@null"
-                android:drawableLeft="@drawable/plus"
-                android:onClick="increaseWater"
-                android:paddingTop="5dp"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <Button
-                android:id="@+id/decreaseWaterButton"
-                android:layout_width="33dp"
-                android:layout_height="16dp"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableLeft="@drawable/minus"
-                android:onClick="decreaseWater"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-        </LinearLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ListViewLayout"
@@ -207,6 +216,7 @@
         android:layout_marginBottom="15dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical"
+        android:paddingTop="25dp"
         app:layout_constraintBottom_toTopOf="@+id/MainButtonLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
